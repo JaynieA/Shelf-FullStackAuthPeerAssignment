@@ -47,3 +47,19 @@ myApp.controller('registerController',['$scope', '$http', '$window',
     });
   };
 }]);
+
+myApp.controller('HomeController', ['$scope', '$http', function($scope, $http) {
+  console.log('HomeController');
+
+  $scope.items = [{description: ';laskjdf', placer: ';lkjasdf', img_url: 'lkjahsdf'}];
+  //get all items from server
+  $scope.getItems = function() {
+    console.log('in getItems');
+  }; // end getItems
+  $http({
+    method: 'GET',
+    url: '/items'
+  }).then(function(response) {
+    console.log(response);
+  }); // end $http
+}]); // end HomeController
