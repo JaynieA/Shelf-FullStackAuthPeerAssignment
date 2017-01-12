@@ -5,6 +5,7 @@
     <title>home</title>
     <script src="./vendors/angular.min.js" charset="utf-8"></script>
     <script src="./scripts/script.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="./vendors/bootstrap.min.css">
   </head>
   <body ng-app="myApp">
     <div ng-controller="HomeController" ng-init="init()">
@@ -15,7 +16,7 @@
             <img ng-src="{{item.img_url}}" alt="{{item.description}}">
             <p>{{item.description}}</p>
             <p>-{{item.placer}}</p>
-            <button ng-click = 'deleteItem (item._id)' ng-show="verified" type="button">Delete</button>
+            <button ng-click="deleteItem (item._id)" ng-show="verified" type="button">Delete</button>
           </div>
     </div>
   </body>
