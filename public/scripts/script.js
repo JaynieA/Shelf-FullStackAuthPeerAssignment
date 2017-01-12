@@ -63,3 +63,12 @@ myApp.controller('HomeController', ['$scope', '$http', function($scope, $http) {
     console.log(response);
   }); // end $http
 }]); // end HomeController
+
+myApp.controller('AddItemController', ['$scope', '$http', function($scope, $http) {
+  console.log('add item controller');
+
+  $scope.addItem = function() {
+    console.log('in addItem');
+  }; // end addItem
+  
+}]);
