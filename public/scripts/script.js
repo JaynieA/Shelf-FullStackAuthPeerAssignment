@@ -51,7 +51,7 @@ myApp.controller('registerController',['$scope', '$http', '$window',
 myApp.controller('HomeController', ['$scope', '$http', function($scope, $http) {
   console.log('HomeController');
 
-  $scope.items = [{description: ';laskjdf', placer: ';lkjasdf', img_url: 'lkjahsdf'}];
+  $scope.items = [];
   //get all items from server
   $scope.getItems = function() {
     console.log('in getItems');
@@ -61,6 +61,7 @@ myApp.controller('HomeController', ['$scope', '$http', function($scope, $http) {
     url: '/items'
   }).then(function(response) {
     console.log(response);
+    $scope.items = response.data;
   }); // end $http
 }]); // end HomeController
 
@@ -69,6 +70,21 @@ myApp.controller('AddItemController', ['$scope', '$http', function($scope, $http
 
   $scope.addItem = function() {
     console.log('in addItem');
+
+    var objectToSend = {
+      description: $scope.descriptionIn,
+      placer: $scope.placerIn,
+      img_url: $scope.imageUrlIn
+    };//end object
+
+    $http ({
+      method: "POST",
+      url: '/addItems',
+      data: objectToSend
+    }).then (function (response){
+      console.log('response ->', response);
+    });
   }; // end addItem
-  
+
+
 }]);
