@@ -1,16 +1,19 @@
 var express = require( 'express' );
 var router = express.Router();
 var path = require('path');
-var Item = require('../models/items.js')
-
+var Item = require('../models/items.js');
 
 router.get('/', function(req, res) {
-  var regPath = path.join(__dirname, '../public/views/addItem.html');
-  res.sendFile(regPath);
+  // if user is not logged in, redirect to login page
+  if (!req.user) {
+    var homePath = path.join(__dirname, '../public/views/index.html');
+    res.sendFile(homePath);
+  } else {
+    //display add item page
+    var addItemPath = path.join(__dirname, '../public/views/addItem.html');
+    res.sendFile(addItemPath);
+  }
 });
-
-
-
 
 router.post('/', function(req, res){
   console.log('req.body ->', req.body);

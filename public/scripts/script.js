@@ -85,5 +85,4 @@ myApp.controller('AddItemController', ['$scope', '$http', function($scope, $http
     });
   }; // end addItem
 
-
 }]);

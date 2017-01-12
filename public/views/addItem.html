@@ -9,9 +9,8 @@
   <script src="./scripts/script.js" charset="utf-8"></script>
 </head>
 <body ng-app="myApp">
-  <h1>Add Item</h1>
-
   <div ng-controller="AddItemController">
+    <h1>Add Item</h1>
     <form ng-submit="addItem()">
       <input ng-model="descriptionIn" type="text" placeholder="item description">
       <input ng-model="imageUrlIn" type="text" placeholder="image url">
