@@ -13,7 +13,15 @@ router.get('/', function(req, res) {
   });
 }); // end get
 
-
-
+router.get('/validate', function(req, res) {
+  console.log('validate route hit on /items');
+  var verified;
+  if (!req.user) {
+    verified = false;
+  } else {
+    verified = true;
+  }
+  res.send({verified: verified});
+}); // end get
 
 module.exports = router;

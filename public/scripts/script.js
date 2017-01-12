@@ -63,6 +63,25 @@ myApp.controller('HomeController', ['$scope', '$http', function($scope, $http) {
     console.log(response);
     $scope.items = response.data;
   }); // end $http
+
+  $scope.init = function() {
+    $scope.getItems();
+    verifyLogin();
+  }; // end init
+
+  var verifyLogin = function() {
+    console.log('in verifyLogin');
+    $scope.verified = '';
+    //check to see if user is logged in
+    $http({
+      method: 'GET',
+      url: '/items/validate'
+    }).then(function(response) {
+      console.log(response);
+      $scope.verified = response.data.verified;
+    }); // end $http
+  }; // end verifyLogin
+
 }]); // end HomeController
 
 myApp.controller('AddItemController', ['$scope', '$http', function($scope, $http) {
