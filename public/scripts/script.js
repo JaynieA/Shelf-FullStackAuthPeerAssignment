@@ -73,7 +73,6 @@ myApp.controller('AddItemController', ['$scope', '$http', function($scope, $http
 
     var objectToSend = {
       description: $scope.descriptionIn,
-      placer: $scope.placerIn,
       img_url: $scope.imageUrlIn
     };//end object
 
