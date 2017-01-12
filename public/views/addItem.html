@@ -10,6 +10,7 @@
 </head>
 <body ng-app="myApp">
   <h1>Add Item</h1>
+
   <div ng-controller="AddItemController">
     <form ng-submit="addItem()">
       <input ng-model="descriptionIn" type="text" placeholder="item description">
@@ -17,5 +18,8 @@
       <button type="submit" name="button">Add Item</button>
     </form>
   </div>
+  <hr>
+  <a href="/home"><button type="button">View Shelf</button></a>
+
 </body>
 </html>

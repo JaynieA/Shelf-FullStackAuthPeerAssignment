@@ -8,9 +8,13 @@
   </head>
   <body ng-app="myApp">
     <div ng-controller="HomeController" ng-init="getItems()">
-          home
+          <h1>Tau Shelf</h1>
+          <a href="/addItems"><button type="button">Add Item to Shelf</button></a>
+          <hr>
           <div ng-repeat="item in items">
-            {{item}}
+            <img ng-src="{{item.img_url}}" alt="{{item.description}}">
+            <p>{{item.description}}</p>
+            <p>-{{item.placer}}</p>
           </div>
     </div>
   </body>
