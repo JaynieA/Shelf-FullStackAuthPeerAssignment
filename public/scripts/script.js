@@ -53,19 +53,20 @@ myApp.controller('HomeController', ['$scope', '$http', function($scope, $http) {
 
   $scope.items = [];
   //get all items from server
-  $scope.getItems = function() {
+  var getItems = function() {
     console.log('in getItems');
-  }; // end getItems
+
   $http({
     method: 'GET',
     url: '/items'
   }).then(function(response) {
-    console.log(response);
+    console.log('get items response ->', response);
     $scope.items = response.data;
   }); // end $http
+}; // end getItems
 
   $scope.init = function() {
-    $scope.getItems();
+    getItems();
     verifyLogin();
   }; // end init
 
@@ -81,6 +82,17 @@ myApp.controller('HomeController', ['$scope', '$http', function($scope, $http) {
       $scope.verified = response.data.verified;
     }); // end $http
   }; // end verifyLogin
+
+  $scope.deleteItem = function (id){
+    console.log('id', id);
+    $http ({
+      method: 'DELETE',
+      url: '/items/' + id
+    }).then (function (response){
+      console.log(response);
+      getItems();
+    });
+  };//end delete item
 
 }]); // end HomeController
 

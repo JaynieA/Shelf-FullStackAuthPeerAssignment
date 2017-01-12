@@ -24,4 +24,17 @@ router.get('/validate', function(req, res) {
   res.send({verified: verified});
 }); // end get
 
+router.delete('/:id', function(req, res){
+  console.log('delete route hit');
+  console.log('req.body id', req.params);
+  Items.remove({_id: req.params.id},function(err){
+    if(err) {
+      console.log(err);
+      res.sendStatus(500);
+    } else {
+      res.sendStatus(204);
+    }
+  });// end remove 
+});//end router delete
+
 module.exports = router;
