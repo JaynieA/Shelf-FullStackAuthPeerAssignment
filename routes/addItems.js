@@ -16,8 +16,6 @@ router.get('/', function(req, res) {
 });
 
 router.post('/', function(req, res){
-  console.log('req.body ->', req.body);
-  console.log('req.user', req.user);
   var description = req.body.description;
   var img_url = req.body.img_url;
   var placer = req.user.username;

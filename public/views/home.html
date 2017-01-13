@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="/styles/style.css">
   </head>
   <body ng-app="myApp" class="container">
-
     <div ng-controller="HomeController" ng-init="init()">
       <div class="container">
         <h1 class="text-center">Tau Shelf</h1>
@@ -26,6 +25,12 @@
             </div>
           </div>
           <img src="../images/shelf.jpg" alt="shelf" class="shelf-img">
+        </div>
+        <div  class="usernames-div text-center" ng-show="showUsersDiv">
+          <h4>Registered Users:</h4>
+          <div ng-repeat="user in usernames">
+            <p>{{user}}</p>
+          </div>
         </div>
       </div>
     </div>

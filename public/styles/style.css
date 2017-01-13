@@ -8,6 +8,9 @@
   position: relative;
   z-index: -1;
 }
+.usernames-div {
+  margin-top: -250px;
+}
 
 .clearfix:after {
      visibility: hidden;

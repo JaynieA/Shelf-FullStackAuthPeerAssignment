@@ -10,6 +10,7 @@ var registerRouter = require('./routes/register');
 var homeRouter = require('./routes/home');
 var itemsRouter = require('./routes/items');
 var addItemRouter = require('./routes/addItems.js');
+var userRouter = require('./routes/user.js');
 
 var app = express();
 
@@ -35,6 +36,7 @@ app.use('/register', registerRouter);
 app.use('/home', homeRouter);
 app.use('/items', itemsRouter);
 app.use('/addItems', addItemRouter);
+app.use('/user', userRouter);
 
 // server port set and listen
 var serverPort = process.env.port || 3000;

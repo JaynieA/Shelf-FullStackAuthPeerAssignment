@@ -14,8 +14,6 @@ router.get('/', function(req, res) {
 }); // end get
 
 router.get('/validate', function(req, res) {
-  console.log('validate route hit on /items');
-  console.log('req.user ->', req.user);
   var verified;
   var username;
   if (!req.user) {
@@ -30,7 +28,6 @@ router.get('/validate', function(req, res) {
 
 router.delete('/:id', function(req, res){
   console.log('delete route hit');
-  console.log('req.body id', req.params);
   Items.remove({_id: req.params.id},function(err){
     if(err) {
       console.log(err);
