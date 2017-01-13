@@ -101,19 +101,29 @@ myApp.controller('AddItemController', ['$scope', '$http', function($scope, $http
 
   $scope.addItem = function() {
     console.log('in addItem');
-
+    //assemble object to send
     var objectToSend = {
       description: $scope.descriptionIn,
       img_url: $scope.imageUrlIn
     };//end object
-
     $http ({
       method: "POST",
       url: '/addItems',
       data: objectToSend
     }).then (function (response){
       console.log('response ->', response);
+      clearForm();
+      showAlertSuccess();
     });
   }; // end addItem
+
+  var clearForm = function() {
+    $scope.descriptionIn = '';
+    $scope.imageUrlIn = '';
+  }; // end clearForm
+
+  var showAlertSuccess = function() {
+    $scope.itemAddSuccess = true;
+  }; // end showAlertSuccess
 
 }]);

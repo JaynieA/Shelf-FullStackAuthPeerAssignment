@@ -10,16 +10,26 @@
   <link rel="stylesheet" href="./vendors/bootstrap.min.css">
 </head>
 <body ng-app="myApp">
-  <div ng-controller="AddItemController">
-    <h1>Add Item</h1>
-    <form ng-submit="addItem()">
-      <input ng-model="descriptionIn" type="text" placeholder="item description">
-      <input ng-model="imageUrlIn" type="text" placeholder="image url">
-      <button type="submit" name="button">Add Item</button>
-    </form>
+  <div class="container">
+    <div ng-controller="AddItemController" ng-click="itemAddSuccess=false">
+      <h1 class="text-center">Add Item</h1>
+      <form ng-submit="addItem()">
+        <div class="form-group">
+          <label>Description:</label>
+          <input ng-model="descriptionIn" type="text" placeholder="item description" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Image Url:</label>
+          <input ng-model="imageUrlIn" type="text" placeholder="image url" class="form-control">
+        </div>
+        <button type="submit" name="button" class="btn btn-success">Add Item</button>
+        <div ng-show="itemAddSuccess" class="alert alert-success">
+          <p>Item Added!</p>
+        </div>
+      </form>
+    </div>
+    <hr>
+    <a href="/home"><button type="button" class="btn btn-primary">View Shelf</button></a>
   </div>
-  <hr>
-  <a href="/home"><button type="button">View Shelf</button></a>
-
 </body>
 </html>

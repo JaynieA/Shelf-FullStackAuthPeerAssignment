@@ -1,0 +1,20 @@
+.add-item-btn {
+  margin-bottom: 30px;
+  clear: left;
+}
+.shelf-img {
+  width: 100%;
+  margin-top: -300px;
+  position: relative;
+  z-index: -1;
+}
+
+.clearfix:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+     }
+.clearfix { display: inline-block; }
