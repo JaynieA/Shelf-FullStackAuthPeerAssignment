@@ -22,7 +22,7 @@
             <div class="text-center">
               <p>{{item.description}}</p>
               <p>-{{item.placer}}</p>
-              <button ng-click="deleteItem(item._id)" ng-show="verified" type="button" class="btn btn-danger">Delete</button>
+              <button ng-click="deleteItem(item._id)" ng-show="verifyUsername (item.placer, username)" type="button" class="btn btn-danger">Delete</button>
             </div>
           </div>
           <img src="../images/shelf.jpg" alt="shelf" class="shelf-img">

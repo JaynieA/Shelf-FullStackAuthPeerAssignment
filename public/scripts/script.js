@@ -80,6 +80,7 @@ myApp.controller('HomeController', ['$scope', '$http', function($scope, $http) {
     }).then(function(response) {
       console.log(response);
       $scope.verified = response.data.verified;
+      $scope.username = response.data.username;
     }); // end $http
   }; // end verifyLogin
 
@@ -93,6 +94,15 @@ myApp.controller('HomeController', ['$scope', '$http', function($scope, $http) {
       getItems();
     });
   };//end delete item
+
+  $scope.verifyUsername = function (placer, username) {
+    console.log('placer then username', placer, username);
+    if (placer == username && username != false) {
+      return true;
+    } else {
+      return false;
+    };
+  };//end verifyUsername
 
 }]); // end HomeController
 

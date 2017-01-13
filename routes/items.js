@@ -15,13 +15,17 @@ router.get('/', function(req, res) {
 
 router.get('/validate', function(req, res) {
   console.log('validate route hit on /items');
+  console.log('req.user ->', req.user);
   var verified;
+  var username;
   if (!req.user) {
     verified = false;
+    username = false;
   } else {
     verified = true;
+    username = req.user.username;
   }
-  res.send({verified: verified});
+  res.send({verified: verified, username: username});
 }); // end get
 
 router.delete('/:id', function(req, res){
@@ -34,7 +38,7 @@ router.delete('/:id', function(req, res){
     } else {
       res.sendStatus(204);
     }
-  });// end remove 
+  });// end remove
 });//end router delete
 
 module.exports = router;
